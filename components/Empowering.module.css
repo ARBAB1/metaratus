@@ -1,0 +1,237 @@
+.empowering {
+    /* padding: 6rem 0 0 0; */
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    /* height: fit-content; */
+}
+
+.empoweringWrapper {
+
+    background-color: rgba(31, 31, 31, 1);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    /* height: fit-content; */
+}
+
+.orbit {
+    position: absolute;
+    left: -200px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    z-index: 1;
+}
+
+.content {
+    text-align: left;
+    max-width: 1000px;
+    padding: 0 2rem;
+}
+
+.title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 400;
+    font-size: clamp(5.5rem, 5vw, 5rem);
+    line-height: 1;
+    color: rgba(255, 255, 255, 1);
+}
+
+.highlight {
+    color: rgba(44, 132, 200, 1);
+}
+
+.gradient {
+    background: linear-gradient(90deg, rgba(130, 88, 200, 1) 0%, rgba(44, 132, 200, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 400;
+}
+
+.imageWrapper {
+    width: calc(100% - 4rem);
+    /* Padding on left and right */
+    max-width: 1800px;
+    margin-bottom: 2rem;
+    /* Padding on bottom */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Ensure the wrapper respects the border radius if we want to clip the image */
+    /* But we are using a cutout overlay, so we don't strictly need overflow hidden on wrapper unless image bleeds */
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 3rem;
+    /* Increased rounded corners */
+}
+.logoContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Center horizontally */
+
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.cutout {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 240px;
+    /* Adjust based on button size */
+    height: 90px;
+    background-color: rgba(31, 31, 31, 1);
+    /* Matches section background */
+    border-top-left-radius: 3rem;
+    /* Matches image radius */
+    z-index: 5;
+    /* Optional: Add a box shadow to blend if needed, but solid color is best */
+}
+
+/* To make it perfect, we might want the image to NOT have a border radius at the bottom right?
+   If the image has border-radius: 2rem all around, and we put a square block on top, it covers the corner.
+   If we put a block with border-top-left-radius, it creates a concave shape.
+   This works perfectly if the image corner is square or if the cutout is large enough.
+   Let's ensure the image corner behind the cutout doesn't interfere.
+   Actually, if the image has a rounded bottom-right corner, and we put a cutout with a rounded top-left corner on top of it...
+   It might look weird if they don't align.
+   Better to have the image be square at bottom-right?
+   We can't easily target just one corner of the 'image' class if it's responsive.
+   But standard border-radius is fine. The cutout sits ON TOP.
+   As long as the cutout is opaque, it hides the image content.
+*/
+
+.videoButton {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    /* Remove background/border to match the clean look or keep it? 
+       The image shows "Watch Video" with a play icon. It looks like simple text/icon on the dark background.
+       Let's keep the previous style but maybe minimalize it if needed.
+       The user said "exact like this image". The image shows a clean button.
+    */
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 10;
+    padding: 0;
+}
+
+.playIcon {
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2px;
+    transition: all 0.3s ease;
+}
+
+.videoButton:hover .playIcon {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+@media (max-width: 768px) {
+    .empowering {
+        /* padding-top: 4rem; */
+    }
+
+    .container {
+        gap: 2rem;
+        padding-top: 4rem;
+    }
+
+    .cutout {
+        width: 180px;
+        height: 70px;
+        border-top-left-radius: 1.5rem;
+    }
+
+    .videoButton {
+        bottom: 1rem;
+        right: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .image {
+        border-radius: 1rem;
+    }
+
+    .cutout {
+        border-top-left-radius: 1rem;
+    }
+    .logoContainer {
+    position: absolute;
+    top:0.5rem;
+    left: 20%;
+    /* Center horizontally */
+width: 25%;
+height: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .cutout {
+        width: 140px;
+        height: 60px;
+    }
+
+    .videoButton {
+        font-size: 0.8rem;
+        bottom: 0.8rem;
+        right: 1rem;
+    }
+}

@@ -1,0 +1,461 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    /* background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1e 100%); */
+    background: rgba(31, 31, 31, 1);
+
+
+
+    padding-top: 20vh;
+    /* padding-bottom: 20vh; */
+}
+
+.backgroundEffects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.gradientOrb1,
+.gradientOrb2,
+.gradientOrb3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 8s ease-in-out infinite;
+}
+
+.gradientOrb1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #764ba2, transparent);
+    bottom: 00px;
+    left: 0px;
+    animation-delay: 0s;
+}
+
+.gradientOrb2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #4fd1c5, transparent);
+    bottom: -200px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+.gradientOrb3 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #667eea, transparent);
+    top: 40%;
+    right: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-40px) scale(1.1);
+    }
+}
+
+.container {
+    /* max-width: 1400px; */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    max-width: 100%;
+    margin: 0 auto 4rem;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-family: 'Sora', sans-serif;
+    color: #ffffff;
+}
+
+.highlight {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #b8b8b8;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.discoverButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+.discoverButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+}
+
+.discoverButton svg {
+    transition: transform 0.3s ease;
+}
+
+.discoverButton:hover svg {
+    transform: translate(3px, -3px);
+}
+
+.heroImages {
+    margin-top: 4rem;
+    background-image: url('/assets/hero/heroBackground.png');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr 1.2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+    min-height: 450px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.card {
+    border-radius: 1.5rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Column 1 - Achievements Card (80% Height, Bottom Aligned) */
+.achievementsCard {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background: transparent;
+    padding: 0;
+    height: fit-content;
+    align-self: end;
+}
+
+.achievementsCard h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.25rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.achievementsCard p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Column 2 - Robot Image (Top) */
+.robotCard {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background: transparent;
+    padding: 0;
+    height: fit-content;
+    align-self: end;
+}
+
+/* Column 2 - Stats Card (Bottom) */
+.statsCard {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background: transparent;
+    justify-content: center;
+    padding: 0;
+    align-self: end;
+    height: fit-content;
+}
+
+.statsCard h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.25rem 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+}
+
+.statsCard p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Column 3 - Crystal Ball Image (Top) */
+.crystalCard {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    background: transparent;
+    padding: 0;
+    align-self: end;
+    height: fit-content;
+}
+
+/* Column 3 - Professional Team Card (Bottom) */
+.professionalCard {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    align-self: end;
+    height: fit-content;
+}
+
+/* Column 4 - Blue Shapes Image (Top) */
+.blueShapesCard {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+
+    align-self: end;
+    height: fit-content;
+}
+
+/* Column 4 - Digital Head Image (Bottom) */
+.digitalHeadCard {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+    background: transparent;
+    padding: 0;
+    align-self: end;
+    overflow: hidden;
+
+    height: fit-content;
+    /* height: fit-content; */
+}
+
+/* Column 5 - Programming Card (Full Height) */
+.programmingCard {
+    grid-column: 5 / 6;
+    grid-row: 1 / 3;
+    background: #4fd1c5;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 0;
+    /* height: 80%; */
+    align-self: end;
+    height: fit-content;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(79, 209, 197, 0.5);
+    box-shadow: 0 20px 40px rgba(79, 209, 197, 0.2);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.patternImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Text Overlays */
+.textOverlay {
+    position: absolute;
+    bottom: 6rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.textOverlay h3,
+.textOverlay p {
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.textOverlay h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.textOverlay p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.textOverlayTop {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.textOverlayTop h3,
+.textOverlayTop p {
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.textOverlayTop h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.textOverlayTop p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+    .imageGrid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .achievementsCard,
+    .robotCard,
+    .statsCard,
+    .crystalCard,
+    .professionalCard,
+    .blueShapesCard,
+    .digitalHeadCard,
+    .programmingCard {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 80px;
+        margin-top: 2rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .imageGrid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .card {
+        align-items: center;
+        text-align: center;
+    }
+
+    .achievementsCard,
+    .statsCard,
+    .professionalCard,
+    .programmingCard {
+        align-self: center;
+        /* Override align-self: end */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .discoverButton {
+        width: 100%;
+        justify-content: center;
+    }
+}

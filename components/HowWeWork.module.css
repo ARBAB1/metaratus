@@ -1,0 +1,232 @@
+.main {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 1);
+    color: white;
+}
+
+.section {
+    padding: 8rem 0;
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 2rem;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* Left Column */
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-family: 'Sora', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+}
+
+/* Accordion */
+.accordion {
+    margin-bottom: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 1);
+}
+
+.item {
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.itemHeader {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemTitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.active .arrow {
+    transform: rotate(180deg);
+}
+
+.itemContent {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.active .itemContent {
+    height: auto;
+}
+
+.contentInner {
+    padding-bottom: 2rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.exploreButton {
+    background: linear-gradient(135deg, rgba(130, 88, 200, 1) 0%, rgba(44, 132, 200, 1) 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    transition: background 0.3s ease;
+}
+
+.exploreButton:hover {
+    background: #764ba2;
+}
+
+.buttonArrow {
+    font-size: 1.2rem;
+}
+
+/* Right Column */
+.imageWrapper {
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.imageOverlay {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+}
+
+.overlayTitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0;
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .section {
+        /* Centering content for mobile/tablet when it stacks */
+        text-align: center;
+    }
+
+    .leftColumn {
+        align-items: center;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .exploreButton {
+        margin: 0 auto;
+    }
+
+    .itemHeader {
+        /* Accordion header text alignment if needed, usually left is better for readability but per request centered */
+        /* justify-content: center; */
+        /* Keeping justify-content: space-between because of the arrow */
+        padding: 2rem 1rem;
+        /* Add horizontal padding if needed */
+    }
+
+    .itemTitle {
+        text-align: left;
+        /* Keep title left for accordion logic usually? User asked for centered headings. */
+        /* Let's try to keep accordion title left aligned with arrow on right, it's a standard pattern. 
+           If I center the text, it might look odd with the arrow. 
+           But "headings and content will be in center". 
+           Maybe I can center the 'How we work' main heading, but keep accordion items functional.
+           I'll assume distinct component headings (like "How We Work") are the main target.
+           The accordion items are "Step 1", "Step 2" etc.
+           I'll center the main section title and button.
+           I will ONLY center the main title and container content.
+        */
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+        border-radius: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+        gap: 3rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .overlayTitle {
+        font-size: 2rem;
+    }
+
+    .imageOverlay {
+        bottom: 1.5rem;
+        left: 1.5rem;
+    }
+}
