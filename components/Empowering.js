@@ -1,8 +1,19 @@
 "use client";
+import { useState } from "react";
 import styles from "./Empowering.module.css";
 import Image from "next/image";
 
 export default function Empowering() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  const openVideo = () => {
+    setIsVideoOpen(true);
+  };
+
+  const closeVideo = () => {
+    setIsVideoOpen(false);
+  };
+
   return (
     <section className={styles.empowering} id="empowering">
       <div className={styles.empoweringWrapper}>
@@ -31,16 +42,35 @@ export default function Empowering() {
                 alt="Metaratus Logo"
                 width={150}
                 height={100}
-                // className={styles.logoImage}
               />
             </div>
             <div className={styles.cutout}></div>
-            <button className={styles.videoButton}>
+            <button className={styles.videoButton} onClick={openVideo}>
               <span className={styles.playIcon}>▶</span> Watch Video
             </button>
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoOpen && (
+        <div className={styles.videoModal} onClick={closeVideo}>
+          <div className={styles.videoModalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={closeVideo}>
+              ✕
+            </button>
+            <div className={styles.videoContainer}>
+              <iframe
+                src="https://www.youtube.com/embed/efuG_VW5ELI?autoplay=1"
+                title="YouTube Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
