@@ -55,17 +55,20 @@ export default function Empowering() {
       {/* Video Modal */}
       {isVideoOpen && (
         <div className={styles.videoModal} onClick={closeVideo}>
-          <div className={styles.videoModalContent} onClick={(e) => e.stopPropagation()}>
+          <div
+            className={styles.videoModalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button className={styles.closeButton} onClick={closeVideo}>
               ✕
             </button>
             <div className={styles.videoContainer}>
               <iframe
-                src="https://www.youtube.com/embed/efuG_VW5ELI?autoplay=1"
+                src="https://www.youtube.com/embed/efuG_VW5ELI?autoplay=1&rel=0&modestbranding=1&enablejsapi=1"
                 title="YouTube Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
               ></iframe>
             </div>
           </div>
